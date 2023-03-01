@@ -68,11 +68,12 @@ if click:
 
         for box in boxes:            
             cat = box['category']
+            score = box['confidence_score']
             index_color = categories_list.index(cat) 
             color = colors[index_color]
             bgr = [int(c) for c in color]
             cv2.rectangle(imgResult, (int(box['x_left_top']), int(box['y_left_top'])), (int(box['x_right_bottom']), int(box['y_right_bottom'])), bgr, 2)
-            cv2.putText(imgResult, cat, (int(box['x_left_top']), int(box['y_left_top']) - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.6, bgr, 2)
+            cv2.putText(imgResult, cat + ' (' + score + ')', (int(box['x_left_top']), int(box['y_left_top']) - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.6, bgr, 2)
 
         imageRGB = cv2.cvtColor(imgResult , cv2.COLOR_BGR2RGB)
 
