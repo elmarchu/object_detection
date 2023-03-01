@@ -68,7 +68,7 @@ if click:
 
         for box in boxes:            
             cat = box['category']
-            score = box['confidence_score']
+            score = str(box['confidence_score'])
             index_color = categories_list.index(cat) 
             color = colors[index_color]
             bgr = [int(c) for c in color]
